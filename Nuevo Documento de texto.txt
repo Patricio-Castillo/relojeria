@@ -1,0 +1,31 @@
+base de datos
+tabla relojes
+
+sku
+nombre
+descripcion
+precio
+genero
+categoria
+
+
+tabla pulseras
+
+sku
+nombre
+descripcion
+precio
+genero
+categoria
+material
+
+
+tabla collares
+
+sku
+nombre
+descripcion
+precio
+genero
+categoria
+material

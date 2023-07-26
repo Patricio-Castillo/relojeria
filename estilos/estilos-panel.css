@@ -1,0 +1,12 @@
+.alta{
+    width:50%;
+    margin: auto;
+    background-color: aquamarine;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.alta>label{
+text-orientation: initial;
+}
