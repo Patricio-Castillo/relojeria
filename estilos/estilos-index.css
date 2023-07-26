@@ -1,0 +1,13 @@
+body{
+    background-color: #e0e4cc;
+}
+@font-face{
+    font-family: 'Sacramento';
+    src: url("../fonts/Sacramento-Regular.ttf");
+}
+
+.castillo{
+    font-family: 'Sacramento';
+    font-size: 50px;
+    color:#a7dbd8;
+}
