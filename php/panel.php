@@ -30,42 +30,119 @@
 
     <!-- MAIN -->
     <main>
+        <!-- ALTA -->
         <div class="alta">
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 <input type="file" name="img1" id="img1"><br>
                 <input type="file" name="img2" id="img2"><br>
                 <input type="file" name="img3" id="img3"><br>
                 <input type="file" name="img4" id="img4"><br>
 
-                <label for="sku">Sku </label>
-                <input type="text" name="sku" id="sku"><br>
 
-                <label for="descripcion">Descripción </label>
-                <input type="text" name="descripcion" id="descripcion"><br>
+                <input type="text" name="sku" id="sku" placeholder="Sku"><br>
 
-                <label for="precio">Precio </label>
-                <input type="text" name="precio" id="precio"><br>
 
-                <label for="genero">Genero </label>
+                <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion"><br>
+
+
+                <input type="text" name="precio" id="precio" placeholder="Precio"><br>
+
+
                 <select name="genero" id="genero">
                     <option value="Caballero">Caballero</option>
                     <option value="Dama">Dama</option>
                 </select><br>
 
-                <label for="categoria">Categoria</label>
+
                 <select name="categoria" id="categoria">
                     <option value="relojes">relojes</option>
                     <option value="pulseras">pulseras</option>
                     <option value="collares">collares</option>
                 </select><br>
 
-                <label for="stock">Stock </label>
-                <input type="text" name="stock" id="stock"><br>
 
-                <input type="submit" value="subir">
+                <input type="text" name="stock" id="stock" placeholder="Stock"><br>
+
+                <input type="submit" value="subir" name="subir">
             </form>
         </div>
 
+        <?php
+        if (isset($_POST["subir"])) {
+            $nombre = $_FILES['img1']['name'];
+            if ($nombre) {
+
+
+                $nombre2 = $_FILES['img2']['name'];
+                $nombre3 = $_FILES['img3']['name'];
+                $nombre4 = $_FILES['img4']['name'];
+                $sku = $_POST['sku'];
+                $descripcion = $_POST['descripcion'];
+                $precio = $_POST['precio'];
+                $genero = $_POST['genero'];
+                $categoria = $_POST['categoria'];
+                $stock = $_POST['stock'];
+                $tmp1 = $_FILES['img1']['tmp_name'];
+                $tmp2 = $_FILES['img2']['tmp_name'];
+                $tmp3 = $_FILES['img3']['tmp_name'];
+                $tmp4 = $_FILES['img4']['tmp_name'];
+
+                $urls = array($tmp1, $tmp2, $tmp3, $tmp4);
+                $nombres = array($nombre, $nombre2, $nombre3, $nombre4);
+
+
+                $comprobar = strlen($sku) * strlen($descripcion) * strlen($precio) * strlen($genero) * strlen($categoria) * strlen($stock);
+                
+                require('conexion.php');
+                mysqli_select_db($conexion, 'relojeria');
+                
+                if ($comprobar > 0) {
+                    if (!file_exists('../imagenes')) {
+                        mkdir('../imagenes', 0777, true);
+                        for ($i = 0; $i < count($urls); $i++) {
+                            if (move_uploaded_file($urls[$i], '../imagenes/' . $nombres[$i])) {
+                                echo "imagen subida";
+                            }
+                        }
+
+
+
+
+
+                    } else if (file_exists('../imagenes')) {
+                        for ($i = 0; $i < count($urls); $i++) {
+                            if (move_uploaded_file($urls[$i], '../imagenes/' . $nombres[$i])) {
+                                echo "imagen subida";
+                            }
+                        }
+                       
+                    }
+
+                } else {
+                    echo '
+                    <script>
+                        alert("favor de llenar todos los campos");
+                    </script>';
+                }
+
+            } else {
+                echo "favor de subir la primera imagen";
+            }
+        }
+        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- EDITAR -->
         <div class="edit">
             <form action="#" method="post" enctype="multipart/form-data">
                 <input type="file" name="img1" id="img1"><br>
@@ -101,7 +178,7 @@
                 <input type="submit" value="subir">
             </form>
         </div>
-
+        <!-- BAJA -->
         <div class="baja">
 
         </div>
