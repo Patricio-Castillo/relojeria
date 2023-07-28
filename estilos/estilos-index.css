@@ -1,5 +1,8 @@
 body{
     background-color: #e0e4cc;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 @font-face{
     font-family: 'Sacramento';
@@ -11,3 +14,51 @@ body{
     font-size: 50px;
     color:#a7dbd8;
 }
+
+header{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+h1{
+    width: 50%;
+    display: inline-block;
+    color:#a7dbd8;
+}
+
+nav{
+   width: 50%;
+   display:flex;
+   float: right;
+   justify-content: end;
+   box-sizing: border-box;
+}
+ nav ul{
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    gap: 1em;
+ }
+
+ nav ul a{
+    float: right;
+    text-decoration: none;
+    text-align: center;
+ }
+
+ nav ul a li{
+    background-color:#a7dbd8 ;
+    padding: 10px;
+    border-radius: 1em;
+ }
+
+ .banner{
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    display: block;
+    border-radius: 2em;
+ }

@@ -92,30 +92,28 @@
 
 
                 $comprobar = strlen($sku) * strlen($descripcion) * strlen($precio) * strlen($genero) * strlen($categoria) * strlen($stock);
-                
+
                 require('conexion.php');
                 mysqli_select_db($conexion, 'relojeria');
-                
+
                 if ($comprobar > 0) {
                     if (!file_exists('../imagenes')) {
                         mkdir('../imagenes', 0777, true);
                         for ($i = 0; $i < count($urls); $i++) {
                             if (move_uploaded_file($urls[$i], '../imagenes/' . $nombres[$i])) {
-                                echo "imagen subida";
                             }
+                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$nombre', '$nombre2', '$nombre3', '$nombre4')");
+                            echo "carga exitosa";
                         }
-
-
-
-
 
                     } else if (file_exists('../imagenes')) {
-                        for ($i = 0; $i < count($urls); $i++) {
+                            for ($i = 0; $i < count($urls); $i++) {
                             if (move_uploaded_file($urls[$i], '../imagenes/' . $nombres[$i])) {
-                                echo "imagen subida";
+                                 }
                             }
-                        }
-                       
+
+                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$nombre', '$nombre2', '$nombre3', '$nombre4')");
+                            echo "carga exitosa";
                     }
 
                 } else {

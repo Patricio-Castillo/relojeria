@@ -11,6 +11,7 @@
 <body>
     <!-- HEADER -->
     <header>
+    <h1><span class="castillo">Castillo</span> relojes</h1>
         <nav>
             <ul>
                 <a href="">
@@ -24,9 +25,11 @@
                 </a>
             </ul>
         </nav>
-        <img src="" alt="">
-        <h1><span class="castillo">Castillo</span> relojes</h1>
+        
+        
+        
     </header>
+    <img src="imagenes/banner.webp" alt="banner" class="banner">
 
     <!-- MAIN -->
     <main>
