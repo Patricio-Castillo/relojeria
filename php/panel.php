@@ -55,9 +55,9 @@
 
 
                 <select name="categoria" id="categoria">
-                    <option value="relojes">relojes</option>
-                    <option value="pulseras">pulseras</option>
-                    <option value="collares">collares</option>
+                    <option value="relojes">Relojes</option>
+                    <option value="pulseras">Pulseras</option>
+                    <option value="collares">Collares</option>
                 </select><br>
 
 
@@ -86,10 +86,12 @@
                 $tmp2 = $_FILES['img2']['tmp_name'];
                 $tmp3 = $_FILES['img3']['tmp_name'];
                 $tmp4 = $_FILES['img4']['tmp_name'];
-
+                $carpeta="imagenes/";    
+            
+                $rutas=array($carpeta.$nombre,$carpeta.$nombre2,$carpeta.$nombre3,$carpeta.$nombre4,);
                 $urls = array($tmp1, $tmp2, $tmp3, $tmp4);
                 $nombres = array($nombre, $nombre2, $nombre3, $nombre4);
-
+                
 
                 $comprobar = strlen($sku) * strlen($descripcion) * strlen($precio) * strlen($genero) * strlen($categoria) * strlen($stock);
 
@@ -102,7 +104,7 @@
                         for ($i = 0; $i < count($urls); $i++) {
                             if (move_uploaded_file($urls[$i], '../imagenes/' . $nombres[$i])) {
                             }
-                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$nombre', '$nombre2', '$nombre3', '$nombre4')");
+                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$rutas[0]','$rutas[1]','$rutas[2]','$rutas[3]')");
                             echo "carga exitosa";
                         }
 
@@ -112,7 +114,7 @@
                                  }
                             }
 
-                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$nombre', '$nombre2', '$nombre3', '$nombre4')");
+                            $subir = mysqli_query($conexion, "INSERT INTO relojes (sku, descripcion, precio, genero, categoria, stock, ruta1, ruta2, ruta3, ruta4 )VALUES('$sku','$descripcion',$precio,'$genero','$categoria', $stock, '$rutas[0]','$rutas[1]','$rutas[2]','$rutas[3]')");
                             echo "carga exitosa";
                     }
 

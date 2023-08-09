@@ -1,64 +1,238 @@
-body{
-    background-color: #e0e4cc;
+body {
+    
+}
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-@font-face{
+@font-face {
     font-family: 'Sacramento';
     src: url("../fonts/Sacramento-Regular.ttf");
 }
 
-.castillo{
+.castillo {
     font-family: 'Sacramento';
     font-size: 50px;
-    color:#a7dbd8;
+    color: #45aab8;
 }
 
-header{
+header {
     width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
 }
 
-h1{
+h1 {
     width: 50%;
     display: inline-block;
-    color:#a7dbd8;
+    color: #45aab8;
+    margin: 0;
 }
 
-nav{
-   width: 50%;
-   display:flex;
-   float: right;
-   justify-content: end;
-   box-sizing: border-box;
+nav {
+    width: 50%;
+    display: flex;
+    float: right;
+    justify-content: end;
+    box-sizing: border-box;
 }
- nav ul{
+
+nav ul {
     width: 60%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
     gap: 1em;
- }
+}
 
- nav ul a{
+nav ul a {
     float: right;
     text-decoration: none;
     text-align: center;
- }
+    color: #faf4b1;
+}
 
- nav ul a li{
-    background-color:#a7dbd8 ;
+nav ul a li:hover{
+    background-color: #f06b50;
+    transform: scale(1.1);
+}
+
+nav ul a li {
+    background-color: #45aab8;
     padding: 10px;
     border-radius: 1em;
- }
+}
 
- .banner{
-    width: 90%;
-    height: 300px;
+.banner {
+    width: 100%;
+    height: 420px;
     margin: auto;
-    display: block;
     border-radius: 2em;
- }
+    background-image: url("../imagenes/banner.webp");
+    background-size: cover;
+    opacity: 0.9;
+    margin-bottom: 1.5em;
+    filter:opacity(90%);
+    position: relativeS;
+}
+.banner-sup {
+    width: 100%;
+    height: 420px;
+    margin: auto;
+    border-radius: 2em;
+    background-color: black;
+    opacity: 0.7;
+}
+.banner p {
+    width: 50%;
+    position: absolute;
+    top:50%;
+    left: 2em;
+    color: #a7dbd8;
+}
+
+.ver2{
+    position: absolute;
+    top: 70%;
+    left: 2em;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+
+.mas-vendidos {
+    margin-top: 20PX;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    grid-gap:10em;
+}
+
+.sugerencias{
+    border-bottom: 2px solid #e1d772;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.articulo{
+    border-bottom: 2px solid #e1d772;
+    padding-bottom: 2px;
+}
+
+.img-articulo{
+    width: 100%;
+    display:block;
+    border-radius: 1em;
+    box-shadow: 3px 4px 10px 0 black;
+}
+
+.articulo p,h3{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    font-weight:normal;
+    margin: 0;
+    padding: 0;
+}
+
+.descripcion{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.prec-ng{
+    font-weight: bold;
+    color: #45aab8;
+}
+
+.ver-catalogo{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 20%;
+    text-decoration: none;
+    padding:10px 1.5em;
+    background-color: #45aab8;
+    color: #faf4b1;
+    border-radius: 1em;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ver-catalogo:hover{
+    background-color: #f06b50;
+    transform: scale(1.05);
+}
+
+.sugerido{
+    background-color: #c2e4cb6d;
+    display: flex;
+}
+
+.des-sug{
+    width: 80%;
+    margin: auto;
+}
+
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    grid-gap:1em;
+    text-align: center;
+}
+
+.img-sug{
+    width: 100%;
+}
+
+footer{
+    width: 90%;
+    margin: auto;
+    background-color:#176585;
+    margin-top: 20px;
+    padding: 20px;
+    height: 300px;
+    position: relative;
+}
+
+footer table{
+    width: 90%;
+    margin: auto;
+    position: absolute;
+    left: 10%;
+    top: 25%;
+}
+
+footer table tr td{
+    padding: 5px 5px;
+    border-left:1px solid #faf4b1;
+}
+
+footer table tr td a{
+    color:#f7f3cf;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+footer table tr td a:hover{
+    color: #f06b50;
+}
+
+.derechos{
+    width: 100%;
+    clear: both;
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    font-size: 20px;
+    color:#f7f3cf;
+}

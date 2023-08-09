@@ -1,0 +1,36 @@
+#productos{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-gap:1em;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.desc-fin{
+    padding-left: 2em;
+}
+
+.descripcion-fin{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.prec-ng2{
+    font-size: 30px;
+    color: #45aab8;
+    font-weight: bold;
+}
+
+.mas-img{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:1px;
+}
+
+.mas-img>img{
+    width: 100%;
+}
